@@ -1,0 +1,30 @@
+@import url("https://fonts.cdnfonts.com/css/general-sans");
+@import url("https://fonts.cdnfonts.com/css/inter");
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+  font-family: "Clash Display";
+  src: url("../fonts/ClashDisplay-Variable.ttf") format("truetype");
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  background-image: url("../images/background-image.png");
+  /* opacity: 6%; */
+  object-fit: cover;
+  height: 100vh;
+}
+
+.generalSans {
+  font-family: "General Sans", sans-serif;
+}
+.interFont {
+  font-family: "Inter", sans-serif;
+}
+.clashFont {
+  font-family: "Clash Display", sans-serif;
+}
