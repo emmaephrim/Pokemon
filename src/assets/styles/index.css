@@ -16,7 +16,8 @@ body {
   background-image: url("../images/background-image.png");
   /* opacity: 6%; */
   object-fit: cover;
-  height: 100vh;
+  /* height: 100vh; */
+  min-height: 100vh;
 }
 
 .generalSans {
@@ -27,4 +28,8 @@ body {
 }
 .clashFont {
   font-family: "Clash Display", sans-serif;
+}
+
+.parent:hover .hidden {
+  opacity: 1;
 }

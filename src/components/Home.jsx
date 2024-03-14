@@ -42,7 +42,7 @@ export default function Home() {
             </button>
           </form>
         </div>
-        <Link to={"/lists"} className="underline">
+        <Link to={"lists"} className="underline">
           View All
         </Link>
       </div>
