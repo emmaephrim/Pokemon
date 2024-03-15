@@ -115,7 +115,7 @@ export default function List() {
               });
 
             return index === seeDetails ? (
-              <div className="fixed top-0 left-0 right-0 bg-modelBackground h-screen flex flex-col items-end jus">
+              <div className="fixed top-0 left-0 right-0 bg-modelBackground  flex flex-col items-end jus">
                 <div
                   className="w-72 sm:w-96 h-screen p-4   text-center bg-white flex flex-col justify-between"
                   key={uniqId()}
