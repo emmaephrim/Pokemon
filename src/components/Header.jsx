@@ -1,22 +1,25 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import logo from "../assets/images/logo.png";
+import { Link } from "react-router-dom";
 
-export default function Header() {
+export default function Header({ themeModel, setThemeModel }) {
   return (
-    <div className="flex justify-between p-2 shadow-xl">
-      <div className="hidden sm:flex items-center">
-        <img
-          src={logo}
-          alt="Pokemon Logo"
-          // width={"80px"}
-          className="mx-2 w-28"
-          style={{ marginBottom: "-30px" }}
-        />
-        <div className="font-bold text-lg">
-          <span className="clashFont">Poké</span>
-          <span className="interFont text-primary">book</span>
+    <div className="flex justify-between p-3 shadow-xl">
+      <Link to={"/"}>
+        <div className="hidden sm:flex items-center">
+          <img
+            src={logo}
+            alt="Pokemon Logo"
+            // width={"80px"}
+            className="mx-2 w-28"
+            style={{ marginBottom: "-30px" }}
+          />
+          <div className="font-bold text-lg">
+            <span className="clashFont">Poké</span>
+            <span className="interFont text-primary">book</span>
+          </div>
         </div>
-      </div>
+      </Link>
       <div>
         <form
           action=""
@@ -36,7 +39,10 @@ export default function Header() {
         </form>
       </div>
       <div>
-        <button className="border-2 border-themeBorder rounded-full">
+        <button
+          className="border-2 border-themeBorder rounded-full"
+          onClick={() => setThemeModel(true)}
+        >
           <div className="theme bg-primary h-7 w-7 rounded-full m-1"></div>
         </button>
       </div>

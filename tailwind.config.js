@@ -7,6 +7,13 @@ module.exports = {
       colors: {
         themeBorder: "#868686",
         pokemonImgBg: "#F1F1F1",
+        firstColor: "#e45884",
+        secondColor: "#41badd",
+        thirdColor: "#daa328",
+        modelBgBackup: "#939393",
+        modelBackground: "#27272780",
+        colorsBg: "#EBEBEB",
+        aboutStatsSimilarBg: "#e9e9e9",
       },
     },
   },

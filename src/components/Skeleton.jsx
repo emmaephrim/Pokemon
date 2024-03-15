@@ -2,7 +2,7 @@ import Header from "./Header";
 
 function Skeleton() {
   return (
-    <>
+    <div data-theme={localStorage.getItem("theme")} className="themeBg">
       <Header />
       <div className="flex items-center justify-center h-screen">
         <div className="border border-blue-300 shadow rounded-md p-4 max-w-sm w-full mx-auto">
@@ -21,7 +21,7 @@ function Skeleton() {
           </div>
         </div>
       </div>
-    </>
+    </div>
   );
 }
 
