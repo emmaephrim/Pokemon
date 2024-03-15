@@ -43,3 +43,7 @@ body {
 /* .parent:hover .hidden {
   opacity: 1;
 } */
+
+select option:hover {
+  background-color: #f1f1f1;
+}

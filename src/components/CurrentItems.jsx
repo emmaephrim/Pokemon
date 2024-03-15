@@ -7,7 +7,7 @@ function CurrentItems({
   hoveredIndex,
   setSeeDetails,
 }) {
-  const { normal, water, poison, grass, fire, flying, bug, ground } = {
+  const { normal, water, poison, grass, fire, flying, bug, ground, rock } = {
     normal: "🐻 Normal",
     water: "💧 Water",
     poison: "☠️ Poison",
@@ -16,6 +16,7 @@ function CurrentItems({
     flying: "🦋 Flying",
     bug: "🐞 Bug",
     ground: "🏜️ Ground",
+    rock: "🪨 Rock",
   };
   return (
     <div className="pt-20 justify-items-center  grid grid-cols-1 gap-y-16 gap-x-10 md:px-16 sm:grid-cols-2  lg:grid-cols-3 xl:grid-cols-4 sm:gap-y-10 ">
@@ -61,6 +62,8 @@ function CurrentItems({
                         ? bug
                         : "" || typeName === "ground"
                         ? ground
+                        : "" || typeName === "rock"
+                        ? rock
                         : ""}
                     </span>
                   )
@@ -71,7 +74,7 @@ function CurrentItems({
           <button
             className={
               hoveredIndex === index
-                ? "bg-primary text-white p-2 justify-between flex  px-5 items-center w-full rounded-e-full rounded-s-full transition duration-1000 ease-in-out z-10"
+                ? "bg-primary text-white p-2 justify-between flex  px-5 items-center w-full rounded-e-full rounded-s-full "
                 : "hidden"
             }
             onClick={() => setSeeDetails(index)}

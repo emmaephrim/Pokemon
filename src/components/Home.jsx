@@ -1,24 +1,18 @@
 import logo from "../assets/images/logo.png";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { useRef, useState } from "react";
+import { useRef } from "react";
 import { Link } from "react-router-dom";
-import { Navigate } from "react-router-dom";
-import { pokemonArray } from "../api/api";
+import { useNavigate } from "react-router-dom";
 
 export default function Home() {
   const searchInputREf = useRef();
-  const [isReady, setIsReady] = useState(false);
+  const navigate = useNavigate();
 
   async function handleSearch(event) {
     event.preventDefault();
-    const query = searchInputREf.current.value; // Access the value property of the input element
+    const query = searchInputREf.current.value;
     try {
-      const mounted = await pokemonArray(query);
-      if (mounted) {
-        console.log("submitted: " + query);
-        console.log("Mounted: ", mounted);
-        setIsReady(true);
-      }
+      navigate(`/lists/${query}`);
     } catch (error) {
       console.log("Search Error From Home component: " + error.message);
     }
@@ -29,7 +23,6 @@ export default function Home() {
       className="flex justify-center flex-col items-center h-screen p-1 themeBg"
       data-theme={localStorage.getItem("theme")}
     >
-      {isReady && <Navigate to="/lists" replace={true} />}
       <img src={logo} alt="logo" className="w-56" style={{ marginTop: -60 }} />
       <div className="font-black text-3xl m-5 ">
         <span className="clashFont">Poké</span>

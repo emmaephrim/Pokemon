@@ -1,7 +1,7 @@
 import { v4 as uniqId } from "uuid";
 
 function EmojiTwo({ item }) {
-  const { normal, water, poison, grass, fire, flying, bug, ground } = {
+  const { normal, water, poison, grass, fire, flying, bug, ground, rock } = {
     normal: "🐻 Normal",
     water: "💧 Water",
     poison: "☠️ Poison",
@@ -10,6 +10,7 @@ function EmojiTwo({ item }) {
     flying: "🦋 Flying",
     bug: "🐞 Bug",
     ground: "🏜️ Ground",
+    rock: "🪨 Rock",
   };
 
   return (
@@ -39,6 +40,8 @@ function EmojiTwo({ item }) {
                   ? bug
                   : "" || typeName === "ground"
                   ? ground
+                  : "" || typeName === "rock"
+                  ? rock
                   : ""}
               </span>
             )
