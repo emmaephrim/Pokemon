@@ -1,6 +1,6 @@
 import Header from "./Header";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { findPokemon, getAllPokemon } from "../api/api";
 import Skeleton from "./Skeleton";
 import ThemeModel from "./ThemeModel";
@@ -13,20 +13,20 @@ import EmojiTwo from "./EmojiTwo";
 import { v4 as uniqId } from "uuid";
 import { useParams } from "react-router-dom";
 import PageNotFond from "./PageNotFound";
+import { ContentContext } from "./App";
 
 export default function List() {
+  const { themeModel, setThemeModel, theme } = useContext(ContentContext);
+
   const [hoveredIndex, setHoveredIndex] = useState(null);
   const [pokemonData, setPokeMonData] = useState(null);
-  const [theme, setTheme] = useState(
-    () => localStorage.getItem("theme") || "primaryTheme",
-  );
-  const [themeModel, setThemeModel] = useState(false);
   const [dominator, setDominator] = useState("bg-primary");
   const [seeDetails, setSeeDetails] = useState(null);
   const [details, setDetails] = useState("about");
   //
   const [currentPage, setCurrentPage] = useState(1);
   const [itemsPerPage, setItemsPerPage] = useState(12);
+
   //
   const { query } = useParams();
 
@@ -242,14 +242,7 @@ export default function List() {
       </div>
 
       {/* Color Model */}
-      {themeModel && (
-        <ThemeModel
-          theme={theme}
-          setTheme={setTheme}
-          themeModel={themeModel}
-          setThemeModel={setThemeModel}
-        />
-      )}
+      {themeModel && <ThemeModel />}
     </>
   );
 }

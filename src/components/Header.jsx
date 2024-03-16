@@ -1,10 +1,12 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import logo from "../assets/images/logo.png";
 import { Link } from "react-router-dom";
-import { useRef } from "react";
+import { useContext, useRef } from "react";
 import { useNavigate } from "react-router-dom";
+import { ContentContext } from "./App";
 
-export default function Header({ themeModel, setThemeModel }) {
+export default function Header() {
+  const { setThemeModel } = useContext(ContentContext);
   const searchInputREf = useRef();
   const navigate = useNavigate();
 

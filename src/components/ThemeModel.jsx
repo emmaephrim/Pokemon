@@ -1,6 +1,10 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { useContext } from "react";
+import { ContentContext } from "./App";
 
-function ThemeModel({ theme, setTheme, themeModel, setThemeModel }) {
+function ThemeModel() {
+  const { theme, setTheme, setThemeModel } = useContext(ContentContext);
+
   const isTheme = "border-2 border-themeBorder rounded-full";
   const notTheme = "border-themeBorder rounded-full";
 

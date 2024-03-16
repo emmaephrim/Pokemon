@@ -26,14 +26,23 @@ module.exports = {
         primaryTheme: {
           ...require("daisyui/src/theming/themes")["light"],
           primary: "#e45884",
+          body: {
+            "background-color": "transparent",
+          },
         },
         secondaryTheme: {
           ...require("daisyui/src/theming/themes")["light"],
           primary: "#41badd",
+          body: {
+            "background-color": "transparent",
+          },
         },
         tertiaryTheme: {
           ...require("daisyui/src/theming/themes")["light"],
           primary: "#daa328",
+          body: {
+            "background-color": "transparent",
+          },
         },
       },
       "light",

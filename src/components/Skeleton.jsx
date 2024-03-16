@@ -1,6 +1,11 @@
+import { ContentContext } from "./App";
 import Header from "./Header";
+import { useContext } from "react";
+import ThemeModel from "./ThemeModel";
 
 function Skeleton() {
+  const { themeModel } = useContext(ContentContext);
+
   return (
     <div data-theme={localStorage.getItem("theme")} className="themeBg">
       <Header />
@@ -21,6 +26,7 @@ function Skeleton() {
           </div>
         </div>
       </div>
+      {themeModel && <ThemeModel />}
     </div>
   );
 }

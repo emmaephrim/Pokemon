@@ -1,13 +1,12 @@
 import { Link } from "react-router-dom";
 import Header from "./Header";
-import { useState } from "react";
 import ThemeModel from "./ThemeModel";
+import { useContext } from "react";
+import { ContentContext } from "./App";
 
 function PageNotFond() {
-  const [themeModel, setThemeModel] = useState(false);
-  const [theme, setTheme] = useState(
-    () => localStorage.getItem("theme") || "primaryTheme",
-  );
+  const { themeModel, setThemeModel, theme, setTheme } =
+    useContext(ContentContext);
 
   return (
     <div data-theme={localStorage.getItem("theme")} className="themeBg">

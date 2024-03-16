@@ -19,7 +19,7 @@ function CurrentItems({
     rock: "🪨 Rock",
   };
   return (
-    <div className="pt-20 justify-items-center  grid grid-cols-1 gap-y-16 gap-x-10 md:px-16 sm:grid-cols-2  lg:grid-cols-3 xl:grid-cols-4 sm:gap-y-10 ">
+    <div className="pt-20 justify-items-center  grid grid-cols-1 gap-y-16 gap-x-10 md:px-16 sm:grid-cols-2  lg:grid-cols-3 xl:grid-cols-4 sm:gap-y-10 themeBg">
       {currentItems?.map((item, index) => (
         <div
           className="bg-white text-center rounded-2xl w-72 p-2 flex flex-col items-center justify-center h-72"
@@ -71,17 +71,18 @@ function CurrentItems({
               })}
             </div>
           </div>
-          <button
-            className={
-              hoveredIndex === index
-                ? "bg-primary text-white p-2 justify-between flex  px-5 items-center w-full rounded-e-full rounded-s-full "
-                : "hidden"
-            }
-            onClick={() => setSeeDetails(index)}
-          >
-            <span>View Pokemon</span>
-            <FontAwesomeIcon icon="fa-solid fa-eye" />
-          </button>
+          {hoveredIndex === index && (
+            <button
+              key={uniqId()}
+              className={
+                "bg-primary text-white p-2 justify-between flex  px-5 items-center w-full rounded-e-full rounded-s-full "
+              }
+              onClick={() => setSeeDetails(index)}
+            >
+              <span>View Pokemon</span>
+              <FontAwesomeIcon icon="fa-solid fa-eye" />
+            </button>
+          )}
         </div>
       ))}
     </div>
