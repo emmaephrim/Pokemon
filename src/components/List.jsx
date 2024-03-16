@@ -25,7 +25,7 @@ export default function List() {
   const [details, setDetails] = useState("about");
   //
   const [currentPage, setCurrentPage] = useState(1);
-  const [itemsPerPage, setItemsPerPage] = useState(12);
+  const [itemsPerPage, setItemsPerPage] = useState(8);
 
   //
   const { query } = useParams();

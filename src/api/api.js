@@ -1,4 +1,6 @@
 export const findPokemon = async (query) => {
+  query = query.toLowerCase();
+  console.log("Lower :", query);
   if (query !== null) {
     let pokemonArray = [];
     try {

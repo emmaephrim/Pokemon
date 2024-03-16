@@ -4,11 +4,17 @@ import { useContext } from "react";
 import ThemeModel from "./ThemeModel";
 
 function Skeleton() {
-  const { themeModel } = useContext(ContentContext);
+  const { themeModel, setThemeModel, theme, setTheme } =
+    useContext(ContentContext);
 
   return (
     <main data-theme={localStorage.getItem("theme")} className="themeBg">
-      <Header />
+      <Header
+        themeModel={themeModel}
+        setThemeModel={setThemeModel}
+        theme={theme}
+        setTheme={setTheme}
+      />
       <div className="flex items-center justify-center h-screen">
         <div className="border border-blue-300 shadow rounded-md p-4 max-w-sm w-full mx-auto">
           <div className="animate-pulse flex space-x-4">
