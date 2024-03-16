@@ -22,15 +22,15 @@ export default function Header({ setThemeModel }) {
   return (
     <div className="flex justify-between p-3 shadow-xl">
       <Link to={"/"}>
-        <div className="hidden sm:flex items-center">
+        <div className="flex-col sm:flex-row sm:flex items-center">
           <img
             src={logo}
             alt="Pokemon Logo"
             // width={"80px"}
-            className="mx-2 w-28"
+            className="mx-auto sm:mx-2 w-12 sm:w-28"
             style={{ marginBottom: "-30px" }}
           />
-          <div className="font-bold text-lg">
+          <div className="font-bold mt-6 sm:mt-auto text-sm sm:text-lg">
             <span className="clashFont">Poké</span>
             <span className="interFont text-primary">book</span>
           </div>

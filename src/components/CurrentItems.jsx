@@ -1,5 +1,6 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { v4 as uniqId } from "uuid";
+import { getPokemonEmoji } from "../helpers/findEmojiHelper";
 
 function CurrentItems({
   currentItems,
@@ -7,17 +8,6 @@ function CurrentItems({
   hoveredIndex,
   setSeeDetails,
 }) {
-  const { normal, water, poison, grass, fire, flying, bug, ground, rock } = {
-    normal: "🐻 Normal",
-    water: "💧 Water",
-    poison: "☠️ Poison",
-    grass: "🌿 Grass",
-    fire: "🔥 Fire",
-    flying: "🦋 Flying",
-    bug: "🐞 Bug",
-    ground: "🏜️ Ground",
-    rock: "🪨 Rock",
-  };
   return (
     <div className="pt-20 justify-items-center  grid grid-cols-1 gap-y-16 gap-x-10 md:px-16 sm:grid-cols-2  lg:grid-cols-3 xl:grid-cols-4 sm:gap-y-10">
       {currentItems?.map((item, index) => (
@@ -46,25 +36,7 @@ function CurrentItems({
                       className="bg-pokemonImgBg rounded-s-full rounded-e-full px-2 m-1"
                       key={uniqId()}
                     >
-                      {typeName === "fire"
-                        ? fire
-                        : "" || typeName === "water"
-                        ? water
-                        : "" || typeName === "normal"
-                        ? normal
-                        : "" || typeName === "poison"
-                        ? poison
-                        : "" || typeName === "grass"
-                        ? grass
-                        : "" || typeName === "flying"
-                        ? flying
-                        : "" || typeName === "bug"
-                        ? bug
-                        : "" || typeName === "ground"
-                        ? ground
-                        : "" || typeName === "rock"
-                        ? rock
-                        : ""}
+                      {getPokemonEmoji(typeName)}
                     </span>
                   )
                 );
