@@ -29,12 +29,21 @@ module.exports = {
           body: {
             "background-color": "transparent",
           },
+          main: {
+            "background-color": "transparent",
+            // height: "100vh",
+          },
         },
         secondaryTheme: {
           ...require("daisyui/src/theming/themes")["light"],
           primary: "#41badd",
           body: {
             "background-color": "transparent",
+            // /* background-image: url("../images/background-image.png");
+          },
+          main: {
+            "background-color": "transparent",
+            // height: "100vh",
           },
         },
         tertiaryTheme: {
@@ -42,6 +51,10 @@ module.exports = {
           primary: "#daa328",
           body: {
             "background-color": "transparent",
+          },
+          main: {
+            "background-color": "transparent",
+            // height: "100vh",
           },
         },
       },

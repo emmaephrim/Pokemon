@@ -70,11 +70,8 @@ export default function List() {
   const paginate = (pageNumber) => setCurrentPage(pageNumber);
 
   return (
-    <>
-      <div
-        className="pb-5 themeBg flex flex-col justify-between h-screen"
-        data-theme={theme}
-      >
+    <main data-theme={theme}>
+      <div className="pb-5 themeBg flex flex-col justify-between">
         <div>
           <Header themeModel={themeModel} setThemeModel={setThemeModel} />
           <CurrentItems
@@ -205,7 +202,7 @@ export default function List() {
         </div>
 
         {/* Pagination controls */}
-        <div className="flex justify-between mt-3 p-7 sm:px-16">
+        <div className="flex justify-between pt-6 p-7 sm:px-16 themeBg">
           <div>
             <button
               onClick={() => paginate(currentPage - 1)}
@@ -243,6 +240,6 @@ export default function List() {
 
       {/* Color Model */}
       {themeModel && <ThemeModel />}
-    </>
+    </main>
   );
 }

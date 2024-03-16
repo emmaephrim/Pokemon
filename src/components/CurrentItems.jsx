@@ -19,7 +19,7 @@ function CurrentItems({
     rock: "🪨 Rock",
   };
   return (
-    <div className="pt-20 justify-items-center  grid grid-cols-1 gap-y-16 gap-x-10 md:px-16 sm:grid-cols-2  lg:grid-cols-3 xl:grid-cols-4 sm:gap-y-10 themeBg">
+    <div className="pt-20 justify-items-center  grid grid-cols-1 gap-y-16 gap-x-10 md:px-16 sm:grid-cols-2  lg:grid-cols-3 xl:grid-cols-4 sm:gap-y-10">
       {currentItems?.map((item, index) => (
         <div
           className="bg-white text-center rounded-2xl w-72 p-2 flex flex-col items-center justify-center h-72"
