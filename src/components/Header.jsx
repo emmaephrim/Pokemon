@@ -1,13 +1,14 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import logo from "../assets/images/logo.png";
 import { Link } from "react-router-dom";
-import { useContext, useRef } from "react";
+import { useContext, useRef, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { ContentContext } from "./App";
 
 export default function Header() {
   const { setThemeModel } = useContext(ContentContext);
   const searchInputREf = useRef();
+  const [showButton, setShowButton] = useState(false);
   const navigate = useNavigate();
 
   async function handleSearch(event) {
@@ -43,20 +44,32 @@ export default function Header() {
           className="flex rounded-s-full rounded-e-full border-2 border-themeBorder shadow-2xl"
           onSubmit={handleSearch}
         >
-          <button type="submit">
-            <FontAwesomeIcon
-              icon="fa-solid fa-magnifying-glass"
-              className=" p-3 w-3.5 h-3.5   mr-3"
-            />
-          </button>
+          {!showButton && (
+            <button type="submit">
+              <FontAwesomeIcon
+                icon="fa-solid fa-magnifying-glass"
+                className=" p-3 w-3.5 h-3.5   mr-3"
+              />
+            </button>
+          )}
           <input
+            onFocus={() => setShowButton(true)}
+            // onBlur={() => setShowButton(false)}
             type="search"
             name="search"
             id=""
             placeholder="Enter pokemon name"
-            className="w-28 sm:w-auto my-2 me-1 bg-transparent focus:outline-none"
+            className="w-28 sm:w-auto my-2 pl-2 me-1 bg-transparent focus:outline-none"
             ref={searchInputREf}
           />
+          {showButton && (
+            <button type="submit">
+              <FontAwesomeIcon
+                icon="fa-solid fa-magnifying-glass"
+                className=" text-white p-3 w-3.5 h-3.5 bg-primary rounded-full mr-1 mt-1"
+              />
+            </button>
+          )}
         </form>
       </div>
       <div>
