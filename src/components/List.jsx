@@ -83,33 +83,34 @@ export default function List() {
 
           {/* Pokemon Details */}
           {currentItems?.map((item, index) => {
-            getDominantColorFromURL(
-              item?.sprites?.other?.dream_world?.front_default,
-            )
-              .then((dominantColor) => {
-                if (index === seeDetails) {
-                  let lighter = `rgb(${Math.min(
-                    dominantColor[0] + 50,
-                    255,
-                  )}, ${Math.min(dominantColor[1] + 50, 255)}, ${Math.min(
-                    dominantColor[2] + 50,
-                    255,
-                  )})`;
-                  let deeper = `rgb(${Math.max(
-                    dominantColor[0] - 50,
-                    0,
-                  )}, ${Math.max(dominantColor[1] - 50, 0)}, ${Math.max(
-                    dominantColor[2] - 50,
-                    0,
-                  )})`;
-                  setDominator(`linear-gradient(${lighter}, ${deeper})`);
-                }
+            index === seeDetails &&
+              getDominantColorFromURL(
+                item?.sprites?.other?.dream_world?.front_default,
+              )
+                .then((dominantColor) => {
+                  if (index === seeDetails) {
+                    let lighter = `rgb(${Math.min(
+                      dominantColor[0] + 50,
+                      255,
+                    )}, ${Math.min(dominantColor[1] + 50, 255)}, ${Math.min(
+                      dominantColor[2] + 50,
+                      255,
+                    )})`;
+                    let deeper = `rgb(${Math.max(
+                      dominantColor[0] - 50,
+                      0,
+                    )}, ${Math.max(dominantColor[1] - 50, 0)}, ${Math.max(
+                      dominantColor[2] - 50,
+                      0,
+                    )})`;
+                    setDominator(`linear-gradient(${lighter}, ${deeper})`);
+                  }
 
-                // Set the dominator state to the gradient
-              })
-              .catch((error) => {
-                console.error("Error getting dominant color:", error);
-              });
+                  // Set the dominator state to the gradient
+                })
+                .catch((error) => {
+                  console.error("Error getting dominant color:", error);
+                });
 
             return index === seeDetails ? (
               <div className="fixed top-0 left-0 right-0 bg-modelBackground  flex flex-col items-end jus">
@@ -150,11 +151,11 @@ export default function List() {
                       <EmojiTwo item={item} />
 
                       {details === "about" ? (
-                        <AboutDetails item={item} />
+                        <AboutDetails item={item} key={uniqId()} />
                       ) : "" || details === "stats" ? (
-                        <StatsDetails item={item} />
+                        <StatsDetails item={item} key={uniqId()} />
                       ) : "" || details === "similar" ? (
-                        <SimilarDetails item={item} />
+                        <SimilarDetails item={item} key={uniqId()} />
                       ) : (
                         ""
                       )}

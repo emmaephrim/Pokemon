@@ -3,7 +3,9 @@ import { v4 as uniqId } from "uuid";
 function AboutDetails({ item }) {
   return (
     <>
-      <div className="text-xl font-bold p-1">About</div>
+      <div className="text-xl font-bold p-1" key={uniqId()}>
+        About
+      </div>
       <div
         className="w-56 mx-auto"
         style={{

@@ -13,7 +13,7 @@ function StatsDetails({ item }) {
         <table>
           <tbody>
             {item?.stats.map((element, index) => (
-              <tr key={uniqId}>
+              <tr key={index}>
                 <td className="text-end p-0 sm:pr-7">
                   {(element?.stat?.name).charAt(0).toUpperCase() +
                     (element?.stat?.name).slice(1)}

@@ -55,3 +55,76 @@ export const getAllPokemon = async () => {
     // throw error;
   }
 };
+
+export const getSimilarPoke = async (query) => {
+  let pokemonDetails, similarByType, similarByEvolution;
+  // Fetch Pokémon details
+  try {
+    const response = await fetch(`https://pokeapi.co/api/v2/pokemon/${query}`);
+    if (!response.ok) {
+      console.log("Failed Find Pokemon Error: ", Error);
+    }
+
+    pokemonDetails = await response.json();
+    if (pokemonDetails == null) {
+      console.log("No pokemon found");
+    }
+  } catch (error) {
+    console.log("Finding Pokemon Catch Error: ", error);
+  }
+
+  // Fetch similar Pokémon by type
+  try {
+    const response = await fetch(
+      `https://pokeapi.co/api/v2/type/${pokemonDetails.types[0].type.name}`,
+    );
+    // console.log(
+    //   "Similar By Type: ",
+    //   `https://pokeapi.co/api/v2/type/${pokemonDetails.types[0].type.name}`,
+    // );
+    if (!response.ok) {
+      console.log("Failed Find Pokemon Error: ", Error);
+    }
+
+    similarByType = await response.json();
+    if (similarByType == null) {
+      console.log("No pokemon found");
+    }
+  } catch (error) {
+    console.log("Finding Pokemon Catch Error: ", error);
+  }
+  // Fetch similar Pokémon by evolution chain
+  try {
+    const response = await fetch(
+      `https://pokeapi.co/api/v2/evolution-chain/${
+        pokemonDetails.species.url.split("/")[6]
+      }`,
+    );
+
+    if (!response.ok) {
+      console.log("Failed Find Pokemon Error: ", Error);
+    }
+
+    similarByEvolution = await response.json();
+    if (similarByEvolution == null) {
+      console.log("No pokemon found");
+    }
+  } catch (error) {
+    console.log("Finding Pokemon Catch Error: ", error);
+  }
+
+  // Select two Pokémon to display as "similar"
+  const similarPokemon1 =
+    similarByType.pokemon[
+      Math.floor(Math.random() * similarByType.pokemon.length)
+    ];
+  const similarPokemon2 =
+    similarByEvolution.chain.evolves_to[
+      Math.floor(Math.random() * similarByEvolution.chain.evolves_to.length)
+    ];
+
+  const pokeByType1 = await findPokemon(similarPokemon1?.pokemon.name);
+  const pokeByEvolution1 = await findPokemon(similarPokemon2?.species.name);
+  console.log("Similar Pokes: ", [...pokeByType1, ...pokeByEvolution1]);
+  return [...pokeByType1, ...pokeByEvolution1];
+};
