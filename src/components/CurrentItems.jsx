@@ -18,12 +18,16 @@ function CurrentItems({
           key={uniqId()}
         >
           <div className="w-60 h-32 bg-pokemonImgBg justify-center flex rounded-2xl">
-            <img
-              src={item?.sprites?.other?.dream_world?.front_default}
-              alt=""
-              className="w-48"
-              style={{ marginTop: "-58px" }}
-            />
+            {item?.sprites?.other?.dream_world?.front_default ? (
+              <img
+                src={item?.sprites?.other?.dream_world?.front_default}
+                alt=""
+                className="w-48"
+                style={{ marginTop: "-58px" }}
+              />
+            ) : (
+              <span className="loading loading-spinner text-primary my-auto w-16"></span>
+            )}
           </div>
           <div className="m-5">
             <p className="clashFont font-medium p-3">{item?.name}</p>
