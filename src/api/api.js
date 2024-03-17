@@ -1,6 +1,4 @@
 export const findPokemon = async (query) => {
-  query = query.toLowerCase();
-  console.log("Lower :", query);
   if (query !== null) {
     let pokemonArray = [];
     try {
@@ -78,10 +76,6 @@ export const getSimilarPoke = async (query) => {
     const response = await fetch(
       `https://pokeapi.co/api/v2/type/${pokemonDetails.types[0].type.name}`,
     );
-    // console.log(
-    //   "Similar By Type: ",
-    //   `https://pokeapi.co/api/v2/type/${pokemonDetails.types[0].type.name}`,
-    // );
     if (!response.ok) {
       console.log("Failed Find Pokemon Error: ", Error);
     }
@@ -125,6 +119,5 @@ export const getSimilarPoke = async (query) => {
 
   const pokeByType1 = await findPokemon(similarPokemon1?.pokemon.name);
   const pokeByEvolution1 = await findPokemon(similarPokemon2?.species.name);
-  console.log("Similar Pokes: ", [...pokeByType1, ...pokeByEvolution1]);
   return [...pokeByType1, ...pokeByEvolution1];
 };
