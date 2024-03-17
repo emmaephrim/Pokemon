@@ -15,7 +15,7 @@ function Skeleton() {
         theme={theme}
         setTheme={setTheme}
       />
-      <div className="flex items-center justify-center h-screen">
+      <div className="flex items-center justify-center h-screen fixed top-0 left-0 right-0">
         <div className="border border-blue-300 shadow rounded-md p-4 max-w-sm w-full mx-auto">
           <div className="animate-pulse flex space-x-4">
             <div className="rounded-full bg-slate-700 h-10 w-10"></div>
